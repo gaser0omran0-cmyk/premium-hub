@@ -1,1 +1,72 @@
-<h1>Welcome to Premium Exclusive Content. Please wait for verification...</h1>
+<!DOCTYPE html>
+<html lang="en" class="bg-[#050505] text-cyan-400 overflow-hidden">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <title>AETHER_INTERNAL // SECURE_UPLINK</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+        * { font-family: 'Share Tech Mono', monospace; }
+        .crt::before { content: " "; display: block; position: absolute; top: 0; left: 0; bottom: 0; right: 0; background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06)); z-index: 100; background-size: 100% 2px, 3px 100%; pointer-events: none; }
+        .red-alert { color: #ff0000; text-shadow: 0 0 10px #ff0000; animation: blink 0.5s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+    </style>
+</head>
+<body class="crt min-h-screen relative flex flex-col p-6">
+    
+    <div class="flex justify-between border-b border-cyan-900/50 pb-2 mb-8 text-[10px] tracking-widest uppercase opacity-60">
+        <div id="user-info">DETECTION: <span id="user-ip">LOADING...</span> | <span id="user-loc">DETECTING_NODE</span></div>
+        <div class="flex gap-4">
+            <span>UPLINK_STABILITY: 98.4%</span>
+            <span class="text-green-500">ENCRYPTION: AES-256-GCM</span>
+        </div>
+    </div>
+
+    <div class="flex-grow flex flex-col items-center justify-center">
+        <div id="main-ui" class="w-full max-w-3xl space-y-10 transition-all duration-1000">
+            <div class="text-center space-y-2">
+                <h1 class="text-7xl font-black italic tracking-tighter text-white">AETHER_v4<span class="text-cyan-500">.SYS</span></h1>
+                <p class="text-xs text-cyan-800 uppercase tracking-[1em]">Universal Exploitation Interface</p>
+            </div>
+
+            <div class="bg-black border border-cyan-500/20 p-1">
+                <div class="border border-cyan-500/10 p-4 flex items-center gap-4">
+                    <span class="text-cyan-900 animate-pulse">>>></span>
+                    <input type="text" id="target" placeholder="ENTER TARGET MSISDN / IMEI / SERVICE_ID" 
+                           class="w-full bg-transparent border-none outline-none text-xl text-cyan-400 placeholder-cyan-900 uppercase">
+                    <button onclick="initiateBreach()" class="bg-cyan-500 text-black px-10 py-3 font-black hover:bg-white transition-all shadow-[0_0_20px_rgba(34,211,238,0.3)]">BREACH</button>
+                </div>
+            </div>
+
+            <div class="w-full grid grid-cols-3 gap-4 text-[9px] opacity-40">
+                <div id="feed-1" class="border-l border-cyan-900 pl-2"></div>
+                <div id="feed-2" class="border-l border-cyan-900 pl-2"></div>
+                <div id="feed-3" class="border-l border-cyan-900 pl-2"></div>
+            </div>
+        </div>
+
+        <div id="terminal-ui" class="hidden w-full max-w-5xl h-[60vh] bg-black border border-cyan-900 flex flex-col shadow-2xl">
+            <div class="bg-cyan-900/20 p-2 text-[10px] flex justify-between items-center">
+                <span>TERMINAL_OUTPUT // KERNEL_LOG</span>
+                <span id="loader-percent" class="font-bold">00%</span>
+            </div>
+            <div id="terminal-content" class="flex-grow overflow-hidden p-4 text-xs space-y-1 text-cyan-700 font-mono"></div>
+            <div class="h-1 bg-cyan-900/30"><div id="progress-line" class="h-full bg-cyan-500 w-0 transition-all"></div></div>
+        </div>
+
+        <div id="trap-ui" class="hidden text-center space-y-6 max-w-lg p-10 bg-black border-2 border-cyan-500 animate-pulse">
+            <div class="text-5xl">🔐</div>
+            <h2 class="text-3xl font-black text-white">DECRYPTION SUCCESSFUL</h2>
+            <p class="text-xs text-cyan-700">The master token has been generated. Due to high-level security on the target node, a final <b>Manual Protocol Bypass (MPB)</b> is required to synchronize the data to your local machine.</p>
+            <button class="w-full bg-cyan-500 text-black font-black py-5 text-2xl shadow-[0_0_40px_rgba(34,211,238,0.6)] hover:scale-105 transition-transform">
+                SYNCHRONIZE & DOWNLOAD
+            </button>
+            <p class="text-[9px] text-red-500 italic">Warning: Connection will terminate if synchronization is not completed within 180 seconds.</p>
+        </div>
+    </div>
+
+    <script src="engine.js"></script>
+</body>
+</html>
