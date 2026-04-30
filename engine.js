@@ -65,3 +65,33 @@ async function runTerminal() {
     }, 1000);
 }
 
+const serviceLogs = {
+    'SOC_REC': ["[OK] SCRAPING PROFILE_UID...", "[INFO] SPOOFING RECOVERY_EMAIL...", "[SUCCESS] TOKEN_LEAK_DETECTED"],
+    'OTP_BYP': ["[OK] LISTENING TO GSM_PAGING_CHANNEL...", "[INFO] INTERCEPTING SMS_BURST...", "[SUCCESS] OTP_FRAGMENT_FOUND"],
+    'MSG_FOR': ["[OK] MOUNTING DB_SNAPSHOT...", "[INFO] DECRYPTING SQLITE_BLOB...", "[SUCCESS] 142_MESSAGES_RETRIEVED"],
+    'VCC_GEN': ["[OK] QUERYING BIN_DATABASE...", "[INFO] GENERATING ALGORITHM_CHECKSUM...", "[SUCCESS] VCC_BUFFER_STAGED"]
+};
+
+let activeService = 'SOC_REC';
+
+function selectService(type) {
+    activeService = type;
+    // Scroll to input
+    document.getElementById('target').focus();
+    document.getElementById('target').placeholder = `ENTER TARGET FOR ${type}...`;
+}
+
+// تعديل دالة initiateBreach لتشمل السجلات المخصصة
+async function initiateBreach() {
+    const target = document.getElementById('target').value;
+    if (!target) return alert("ERR: NO_TARGET_SPECIFIED");
+    
+    // إخفاء الواجهة وإظهار السجلات المخصصة للخدمة المختارة
+    document.getElementById('main-ui').classList.add('hidden');
+    document.getElementById('terminal-ui').classList.remove('hidden');
+    
+    // إضافة سجلات الخدمة المختارة إلى مصفوفة الـ logs
+    const customLogs = serviceLogs[activeService].map(m => ({ m, d: 1500 }));
+    // دمجها مع السجلات العامة
+    await runTerminal([...customLogs, ...globalLogs]); 
+}
